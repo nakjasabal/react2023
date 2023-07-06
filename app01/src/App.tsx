@@ -1,24 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
+import * as D from "./data";
 import './App.css';
 
 function App() {
+  console.log("잘되나요?");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello React</h1>      
+      <p>
+        {D.randomName()}, {D.randomJobTitle()}, {D.randomDayMonthYear()}
+      </p>
+      <img src={D.randomAvatar()} height="200" />
+      <img src={D.randomImage()} height="200" />
     </div>
   );
 }
