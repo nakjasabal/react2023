@@ -1,0 +1,16 @@
+ECMAScript 자바스트립트 버전별 특징
+
+참조URL : https://velog.io/@zioo/ES6-%EB%AC%B8%EB%B2%95%EC%A0%95%EB%A6%AC
+
+ES6의 주된 특징
+1.Default Parameters
+2.Template Literals (string 을 합칠 때 더이상 +를 붙이지 않아도 된다!)
+3.Multi-line Strings
+4.Destructuring Assignment
+5.Enhanced Object Literals
+6.Arrow Functions
+7.Promises
+8.Block-Scoped Constructs Let and Const
+9.Classes
+10.Modules
+

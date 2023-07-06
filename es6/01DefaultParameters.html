@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.warn("기존es5방식");
+        var myFunc1 = function(a, b, c) {
+            console.log(a, b, c);
+        }; 
+        myFunc1("1");
+
+        /*  a 의 값은 들어왔지만 b 와 c 는 값을 할당받지 못해 undefined가 출력된다. 
+        기본값을 설정하기 위해 파라미터가 undefined 인지 일일히 체크하고, 값을 할당해줘야 한다.*/
+
+        function myFunc2(a, b, c){
+            if(b==undefined) b = 'morning';
+            if(c==undefined) c = 'sir';
+            
+            console.log(a, b, c);
+        }
+        myFunc2("good");
+
+
+        /*
+        es6문법을 사용할 경우, default parameter를 설정할 수 있게 변경되었습니다. 
+        따라서 함수 실행 시 parameter b와 c에 대해 별도로 지정하지않을 경우, 
+        default로 설정된 “b”, “c”가 출력됩니다.
+        */
+        console.warn("es6방식");
+        var myFunc3 = (a, b=2, c=3) => {
+            console.log(a, b, c);
+        }; 
+        myFunc3(1);
+        myFunc3('나는', 'java', '개발자');
+    </script>
+</body>
+</html>
