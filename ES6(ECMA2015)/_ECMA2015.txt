@@ -33,6 +33,18 @@ ES9(ES2018)
 
 
 
+##템플릿 리터럴
+참조1
+https://eblee-repo.tistory.com/38
+참조2
+https://poiemaweb.com/es6-template-literals
+
+
+##스프레드 연산자(Spread operator)
+https://paperblock.tistory.com/62
+
+
+
 
 
 
