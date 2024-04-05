@@ -11,6 +11,8 @@
 /react08-dom-management/node_modules
 /react09-scoreboard/node_modules
 /react10-redux/node_modules
+/react11-firestore/node_modules
+/react12-realtime/node_modules
 
 # testing
 /coverage
