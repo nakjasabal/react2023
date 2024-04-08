@@ -10,11 +10,7 @@ function App() {
     let trArray = [];
     const querySnapshot = await getDocs(collection(firestore, "members"));
     querySnapshot.forEach((doc) => {
-      /**
-      doc.id : 문서명. 여기서는 사용자 아이디.
-      doc.data() : 도큐먼트. 여기서는 회원 정보.
-       */
-      console.log(doc.id, " => ", doc.data());  
+      //console.log(doc.id, " => ", doc.data());  
       let memberInfo = doc.data();
       //console.log("파싱", doc.id, memberInfo.pass, memberInfo.name, memberInfo.regdate)
       trArray.push (
@@ -26,7 +22,6 @@ function App() {
         </tr>  
       );
     });
-    //여기서 State 변경
     setShowData(trArray);
   }
 
@@ -50,3 +45,4 @@ function App() {
 }
 
 export default App;
+

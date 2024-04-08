@@ -14,11 +14,6 @@ function App() {
   }
   
   const memberWrite = async (p_collection, p_id, p_pass, p_name) => {
-    /*
-    컬렉션(테이블) : members
-      문서(아이디) : test_id1
-        필드(세부내용) : 1234, 손오공, 가입일
-    */
     await setDoc(doc(firestore, p_collection, p_id), {      
       id: p_id,
       pass: p_pass,
@@ -53,7 +48,8 @@ function App() {
         <table className='table table-bordered table-striped'>
           <tr>
             <td>컬렉션(테이블) </td>
-            <td><input type="text" name="collection" value="members" /></td>
+            <td><input type="text" name="collection" 
+                    value="members" /></td>
           </tr>
           <tr>
             <td>아이디</td>
@@ -75,3 +71,4 @@ function App() {
 }
 
 export default App;
+

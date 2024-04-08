@@ -8,7 +8,7 @@ function App() {
 
   const getCollection = async (sField, sStr) => {
     console.log("선택", sField);
-    let row = {};
+    let aaaa = {};
     let user_id = '';
     if(sField==='id'){
       user_id = sStr;
@@ -16,7 +16,7 @@ function App() {
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         console.log("Document data:", docSnap.data());
-        row = docSnap.data();
+        aaaa = docSnap.data();
       } 
       else {
         console.log("No such document!");
@@ -24,25 +24,27 @@ function App() {
     }
     else if(sField==='name'){
       const membersRef = collection(firestore, "members");
-      console.log('membersRef', membersRef, membersRef._path.segments[0]);      
+      console.log('membersRef', membersRef, membersRef._path.segments[0]);
+      // user_id = membersRef._path.segments[0];
       const q = query(membersRef, where("name", "==", sStr));
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
         console.log(doc.id, " => ", doc.data());
-        row = doc.data();
+        aaaa = doc.data();
       });
     }
 
     let trArray = [];
     trArray.push (
       <tr key={doc.id}>
-        <td className="cen">{row.id}</td>
-        <td className="cen">{row.pass}</td>
-        <td className="cen">{row.name}</td>
-        <td className="cen">{row.regdate}</td>
+        <td className="cen">{aaaa.id}</td>
+        <td className="cen">{aaaa.pass}</td>
+        <td className="cen">{aaaa.name}</td>
+        <td className="cen">{aaaa.regdate}</td>
       </tr>  
     );
      
+    //여기서 State 변경
     setShowData(trArray);
   }
 

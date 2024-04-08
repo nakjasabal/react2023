@@ -1,4 +1,10 @@
 import { initializeApp } from "firebase/app";
+
+//성공했던코드
+// import "firebase/compat/firestore";
+// import firebase from "firebase/compat/app";
+
+//공식문서에 있는데로 테스트
 import { getFirestore } from "firebase/firestore";
 
 //.env 파일 생성 전
@@ -21,6 +27,12 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_appId
 };
 
+//성공했던코드
+// firebase.initializeApp(firebaseConfig);
+// const firestore = firebase.firestore();
+// export { firestore };
+
+//공식문서에 있는데로 테스트
 const app = initializeApp(firebaseConfig);
 const firestore = getFirestore(app);
 export { firestore };
