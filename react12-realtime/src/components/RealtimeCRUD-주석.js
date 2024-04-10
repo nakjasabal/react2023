@@ -1,11 +1,11 @@
-import React from 'react';
-import { realtime } from './realtimeConfig';
+import React, { useState } from 'react';
+import { realtime } from '../realtimeConfig';
 import { ref, set } from "firebase/database";
 import { getDatabase, child, get,  push, update, remove } from "firebase/database";
+import Navi from '../components/Navi';
 
 function RealtimeCRUD() {
   //database 연결 확인
-  //const db = getDatabase(app);
   console.log("realtime", realtime);
 
   //데이터쓰기
@@ -71,6 +71,8 @@ function RealtimeCRUD() {
     return update(ref(realtime), deletes);
   }
 
+
+  //데이터 삭제2
   function deleteUserData2(userId) {  
     remove(ref(realtime, 'users/' + userId))
     .then(()=>{
@@ -81,16 +83,20 @@ function RealtimeCRUD() {
     });
   }
 
+  const [addNum, setAddNum] = useState(0);
+
   //입력데이터(수정해서 사용하세요.)
-  let adder = "-c";
+  let adder = "-"+addNum;
   const id = 'nakja'+adder;
   const name = "낙자쌤"+adder;
-  const pass = "1234"+adder;
+  const pass = "xyz"+adder;
 
   return (
     <div className="App">
+      <Navi />
       <h2>Firebase - Realtime Database App</h2>      
       <h3>01.CRUD</h3>
+      <input type="number" value={addNum} onChange={(e)=>{setAddNum(e.target.value);}} />
       <input type='button' value='입력' onClick={()=>{
         writeUserData(id, name, pass);
       }} />
@@ -98,7 +104,7 @@ function RealtimeCRUD() {
         readUserData(id);
       }} />
       <input type='button' value='수정' onClick={()=>{
-        editUserData(id, name+'x', pass+'x');
+        editUserData(id, name+'edit', pass+'edit');
       }} />
       <input type='button' value='삭제1' onClick={()=>{
         deleteUserData1(id);

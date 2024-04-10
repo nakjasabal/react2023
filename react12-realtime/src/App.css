@@ -1,7 +1,12 @@
-*{
-  margin: 5px;
+.App {
+  margin: 20px;
 }
-input{
-  border: 1px solid black;
-  margin: 2px; width: 100%;
+input[type=number]{
+  width: 100px;margin-right: 10px;
+}
+input[type=button]{
+  width: 60px;margin-right: 10px;
+}
+.naviWrap{
+  padding: 5px;
 }

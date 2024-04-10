@@ -67,7 +67,7 @@ const LayoutIndex = () => {
 /intro/router 경로가 요청되었을때 Outlet에 렌더링 되는 컴포넌트 
 */
 const RouterHooks = ()=>{
-  /** 
+  /**  
   useLocation 
     : React Router를 통해 라우팅된 페이지에서 현재 URL과 관련된
     정보를 얻는데 사용된다. URL경로, 쿼리스트링 등의 관련 정보를 제공한다.
@@ -149,7 +149,7 @@ const NotFound = ()=>{
         <Link to='/'>Home</Link>
       </p>
     </div>
-  );
+  ); 
 }
 
 function App() {  

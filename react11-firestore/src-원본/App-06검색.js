@@ -8,14 +8,15 @@ function App() {
 
   const getCollection = async (sField, sStr) => {
     console.log("선택", sField);
-    let getRows = [];
-
+    let row = {};
+    let user_id = '';
     if(sField==='id'){
+      user_id = sStr;
       const docRef = doc(firestore, "members", sStr);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
-        // console.log("Document data:", docSnap.data());
-        getRows.push(docSnap.data());
+        console.log("Document data:", docSnap.data());
+        row = docSnap.data();
       } 
       else {
         console.log("No such document!");
@@ -23,29 +24,25 @@ function App() {
     }
     else if(sField==='name'){
       const membersRef = collection(firestore, "members");
-      // console.log('membersRef', membersRef); 
+      console.log('membersRef', membersRef, membersRef._path.segments[0]);      
       const q = query(membersRef, where("name", "==", sStr));
       const querySnapshot = await getDocs(q);
-      // console.log("Document data:", querySnapshot);
       querySnapshot.forEach((doc) => {
-        console.log("반복인출", doc.id, doc.data());
-        getRows.push(doc.data());
+        console.log(doc.id, " => ", doc.data());
+        row = doc.data();
       });
     }
 
     let trArray = [];
-    console.log("getRows", getRows);
-    getRows.forEach((row) => {
-      trArray.push (
-        <tr key={row.id}>
-          <td className="cen">{row.id}</td>
-          <td className="cen">{row.pass}</td>
-          <td className="cen">{row.name}</td>
-          <td className="cen">{row.regdate}</td>
-        </tr>  
-      );
-    });
-    
+    trArray.push (
+      <tr key={doc.id}>
+        <td className="cen">{row.id}</td>
+        <td className="cen">{row.pass}</td>
+        <td className="cen">{row.name}</td>
+        <td className="cen">{row.regdate}</td>
+      </tr>  
+    );
+     
     setShowData(trArray);
   }
 
@@ -59,14 +56,12 @@ function App() {
         let ss = e.target.searchStr.value;
         getCollection(sf, ss);
       }}>
-        <div class="input-group" id="myForm">
-          <select name="searchField" className="form-control">
-            <option value="id">아이디</option>
-            <option value="name">이름</option>
-          </select>
-          <input type="text" name="searchStr" className="form-control" />
-          <button type='submit' className="btn btn-secondary">전체조회</button>
-        </div>
+        <select name="searchField">
+          <option value="id">아이디</option>
+          <option value="name">이름</option>
+        </select>
+        <input type="text" name="searchStr" style={{width:'150px'}}/>
+        <button type='submit'>전체조회</button>
       </form>
       <table className='table table-bordered'>
         <thead>
