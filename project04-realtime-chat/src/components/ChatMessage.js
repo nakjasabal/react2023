@@ -93,9 +93,9 @@ function ChatMessage() {
   useEffect(() => {
     onValue(dbRef, (snapshot) => {
       clearInterval(timerRef.current);
-      timerRef.current = setInterval(()=>{
+      timerRef.current = setTimeout(()=>{
         scrollTop(chatWindow.current);
-      }, 500);    
+      }, 300);    
       let showDiv = [];      
       snapshot.forEach((childSnapshot) => {
         // const childKey = childSnapshot.key;
@@ -156,8 +156,7 @@ function ChatMessage() {
               <input type="hidden" name="chatId" value={userId} />
               <div className="card-footer text-muted d-flex justify-content-start align-items-center p-3">
                 <div className="input-group mb-0">
-                  <input type="text" className="form-control" placeholder="메세지를 입력하세요" name="message"
-                    aria-label="Recipient's username" aria-describedby="button-addon2" />
+                  <input type="text" className="form-control" placeholder="메세지를 입력하세요" name="message" aria-label="Recipient's username" aria-describedby="button-addon2" />
                   <button className="btn btn-warning" type="submit" id="button-addon2" style={{'paddingTop':'.55rem'}}>
                     전송
                   </button>
