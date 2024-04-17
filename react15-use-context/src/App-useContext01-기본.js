@@ -1,7 +1,7 @@
 import './App.css';
 
 //컴포넌트 임포트
-import CompState1 from './commons/CompState1';
+import CompState1 from './commons/CompProps1';
 import CompContext1 from './commons/CompConext1';
 import { SimpleContext } from './context/SimpleContext';
 
