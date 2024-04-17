@@ -2,15 +2,14 @@ import React from 'react';
 import { useContext } from 'react';
 import { SimpleContext } from '../context/SimpleContext';
 
-
-const CompContext = () => {
-  const ctxData = useContext(SimpleContext);
+const CompContext2 = () => {
+  const contextData = useContext(SimpleContext);
   return (
     <div>
-      <h4>Simple 컴포넌트</h4>
-      <p>{ctxData}</p>
+      <h4>Context2 컴포넌트</h4>
+      {contextData}
     </div>  
   );
 }
 
-export default CompContext;
+export default CompContext2;
