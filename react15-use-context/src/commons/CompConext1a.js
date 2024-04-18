@@ -1,7 +1,6 @@
 import React from 'react';
 import CompContext2a from './CompConext2a';
 
-
 const CompContext1a = () => {
   return (
     <div>
@@ -12,3 +11,4 @@ const CompContext1a = () => {
 }
 
 export default CompContext1a;
+

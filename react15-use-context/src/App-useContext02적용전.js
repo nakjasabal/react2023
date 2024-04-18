@@ -47,7 +47,8 @@ const Footer = ({ isDark, setIsDark }) => {
         backgroundColor : isDark ? 'black' : 'lightgray'
       }}
     >
-      <input type="button" value="Dark Mode" className="button" onClick={toggleTheme}></input>
+      <input type="button" value="Dark Mode" className="button" 
+        onClick={toggleTheme}></input>
     </div> 
   );
 }
@@ -62,3 +63,6 @@ function App() {
 }
 
 export default App;
+
+
+

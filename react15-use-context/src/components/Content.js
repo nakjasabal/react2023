@@ -2,11 +2,11 @@ import React from 'react';
 import { useContext } from 'react';
 
 import { ThemeContext } from '../context/ThemeContext';
-import { MyContext } from '../context/SimpleContext';
+import { SimpleContext } from '../context/SimpleContext';
 
 const Content = () => {
   const { isDark } = useContext(ThemeContext);
-  const userMessage = useContext(MyContext);
+  const userMessage = useContext(SimpleContext);
 
   return (
     <div className="content"
@@ -21,3 +21,4 @@ const Content = () => {
 }
 
 export default Content;
+

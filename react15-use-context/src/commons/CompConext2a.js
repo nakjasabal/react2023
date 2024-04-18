@@ -6,10 +6,11 @@ const CompContext2a = () => {
   const contextData = useContext(SimpleContext);
   return (
     <div>
-      <h4>Context2 컴포넌트</h4>
+      <h4>Context2a 컴포넌트</h4>
       {contextData}
     </div>  
   );
 }
 
 export default CompContext2a;
+

@@ -7,12 +7,12 @@ const ChatStart = () => {
   const refId = useRef();
 
   const openChatWin = () => {
-    window.open(`/chat/talk?roomId=${refRoom.current.value}&userId=${refId.current.value}`, 
+    window.open(`#/chat/talk?roomId=${refRoom.current.value}&userId=${refId.current.value}`, 
         '', 'width=500,height=700');
   }
   
   return (<>
-    <div className="App">
+    <div className="App" style={{margin:'20px'}}>
       <Navi />
       <h2>Firebase - Realtime Database Chatting</h2>
       방명 : <input type="text" name="roomId" value="room1" ref={refRoom} /> <br />

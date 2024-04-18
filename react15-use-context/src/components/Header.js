@@ -2,13 +2,13 @@ import React from 'react';
 import { useContext } from 'react';
 
 import { ThemeContext } from '../context/ThemeContext';
-import { MyContext } from '../context/SimpleContext';
+import { SimpleContext } from '../context/SimpleContext';
 
 const Header = () => {
   const { isDark } = useContext(ThemeContext);  
   console.log('Header컴포넌트', isDark);
 
-  const userMessage = useContext(MyContext);
+  const userMessage = useContext(SimpleContext);
 
   return (
     <header className="header" 
@@ -23,3 +23,4 @@ const Header = () => {
 }
 
 export default Header;
+
